@@ -27,13 +27,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+
         moveInput = new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
         moveVelocity = moveInput.normalized * speed;
 
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
         {
-            
             rigidBody.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
     }
@@ -69,7 +68,10 @@ public class PlayerMovement : MonoBehaviour
         //ENTER/LEAVE CAR
         if (other.tag == "Car")
         {
-            interactingObject = other.gameObject;
+            if (!isInCar)
+            {
+                interactingObject = other.gameObject;
+            }
 
             //IF WE WANT TO ENTER CAR
             if (canMove && !isInCar)
@@ -93,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                     //Update camera target
                     gameCam.GetComponent<TransformFollower>().target = other.transform;
 
-                    if (other.GetComponent<EnemyPatrol>()!=null)
+                    if (other.GetComponent<EnemyPatrol>() != null)
                     {
                         other.GetComponent<EnemyPatrol>().enabled = false;
                     }
@@ -101,6 +103,15 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log("Just ENTERED the car!");
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //ENTER/LEAVE CAR
+        if (other.tag == "Car" && !isInCar)
+        {
+            interactingObject = null;
         }
     }
 
