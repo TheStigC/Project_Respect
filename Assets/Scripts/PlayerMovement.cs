@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
+            
             rigidBody.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
     }
