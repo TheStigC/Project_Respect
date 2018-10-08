@@ -979,6 +979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 246259026}
   - component: {fileID: 246259027}
+  - component: {fileID: 246259028}
   m_Layer: 9
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -1009,8 +1010,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.5, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5, y: 0.75, z: 3.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!65 &246259028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246259025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.75, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &249587575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +1033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 249587576}
   - component: {fileID: 249587577}
+  - component: {fileID: 249587578}
   m_Layer: 9
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -1050,8 +1064,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.5, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5, y: 0.75, z: 3.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!65 &249587578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 249587575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.75, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &341612467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,7 +1765,7 @@ GameObject:
   - component: {fileID: 442753368}
   - component: {fileID: 442753370}
   - component: {fileID: 442753369}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: KillCollider
   m_TagString: HitCollider
   m_Icon: {fileID: 0}
@@ -1780,8 +1806,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: -0.25, z: 1.6}
+  m_Size: {x: 1, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 1.6}
 --- !u!1 &460408610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 535334519}
   - component: {fileID: 535334520}
+  - component: {fileID: 535334521}
   m_Layer: 9
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -2226,8 +2253,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.5, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5, y: 0.75, z: 3.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!65 &535334521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535334518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.75, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!224 &555420983
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2386,7 +2425,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 610600854}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2
@@ -3664,7 +3703,7 @@ GameObject:
   - component: {fileID: 926871631}
   - component: {fileID: 926871633}
   - component: {fileID: 926871632}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: KillCollider
   m_TagString: HitCollider
   m_Icon: {fileID: 0}
@@ -3705,8 +3744,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: -0.25, z: 1.6}
+  m_Size: {x: 1, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 1.6}
 --- !u!4 &937226271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b3248db90896a6f46a0cdb09d671a88f,
@@ -3824,7 +3863,7 @@ GameObject:
   - component: {fileID: 941450285}
   - component: {fileID: 941450287}
   - component: {fileID: 941450286}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: KillCollider
   m_TagString: HitCollider
   m_Icon: {fileID: 0}
@@ -3865,8 +3904,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: -0.25, z: 1.6}
+  m_Size: {x: 1, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 1.6}
 --- !u!1001 &949243173
 Prefab:
   m_ObjectHideFlags: 0
@@ -4025,7 +4064,7 @@ GameObject:
   - component: {fileID: 1051235608}
   - component: {fileID: 1051235610}
   - component: {fileID: 1051235609}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: KillCollider
   m_TagString: HitCollider
   m_Icon: {fileID: 0}
@@ -4066,8 +4105,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: -0.25, z: 1.6}
+  m_Size: {x: 1, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 1.6}
 --- !u!1 &1129804843
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,7 +4799,7 @@ GameObject:
   - component: {fileID: 1254878489}
   - component: {fileID: 1254878491}
   - component: {fileID: 1254878490}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: KillCollider
   m_TagString: HitCollider
   m_Icon: {fileID: 0}
@@ -4801,8 +4840,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: -0.25, z: 1.6}
+  m_Size: {x: 1, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 1.6}
 --- !u!1 &1270261023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5467,6 +5506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1421907028}
   - component: {fileID: 1421907029}
+  - component: {fileID: 1421907030}
   m_Layer: 9
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -5497,8 +5537,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.25, y: 1.5, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.25, y: 0.75, z: 3}
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!65 &1421907030
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1421907027}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.75, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &1430785158
 GameObject:
   m_ObjectHideFlags: 0
@@ -5685,6 +5737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1453054756}
   - component: {fileID: 1453054757}
+  - component: {fileID: 1453054758}
   m_Layer: 9
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -5715,8 +5768,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.5, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5, y: 0.75, z: 3.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!65 &1453054758
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1453054755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.75, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &1483771397
 GameObject:
   m_ObjectHideFlags: 0
@@ -6805,6 +6870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1711202081}
   - component: {fileID: 1711202082}
+  - component: {fileID: 1711202083}
   m_Layer: 9
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -6835,8 +6901,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.5, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5, y: 0.75, z: 3.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!65 &1711202083
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1711202080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.75, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!4 &1718124738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b3248db90896a6f46a0cdb09d671a88f,
@@ -7077,7 +7155,7 @@ GameObject:
   - component: {fileID: 1833417451}
   - component: {fileID: 1833417453}
   - component: {fileID: 1833417452}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: KillCollider
   m_TagString: HitCollider
   m_Icon: {fileID: 0}
@@ -7118,8 +7196,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: -0.25, z: 1.6}
+  m_Size: {x: 1, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 1.6}
 --- !u!1 &1898611402
 GameObject:
   m_ObjectHideFlags: 0
@@ -7129,6 +7207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1898611403}
   - component: {fileID: 1898611404}
+  - component: {fileID: 1898611405}
   m_Layer: 9
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -7159,8 +7238,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.5, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5, y: 0.75, z: 3.5}
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!65 &1898611405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898611402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.75, z: 1.5}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &1901449870
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,7 +7925,7 @@ GameObject:
   - component: {fileID: 2139399401}
   - component: {fileID: 2139399403}
   - component: {fileID: 2139399402}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: KillCollider
   m_TagString: HitCollider
   m_Icon: {fileID: 0}
@@ -7875,8 +7966,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: -0.25, z: 1.6}
+  m_Size: {x: 1, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: -0.5, z: 1.6}
 --- !u!1 &2143644286
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,8 +25,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
         //FIND PLAYER ROTATION AND ROTATE TOWARDS HIM
         Vector3 targetDir = player.position - transform.position;
         float step = rotationSpeed * Time.deltaTime;

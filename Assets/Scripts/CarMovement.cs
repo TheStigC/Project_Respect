@@ -33,8 +33,15 @@ public class CarMovement : MonoBehaviour
     {
         if (isControlledByPlayer)
         {
-            //rigidBody.MovePosition(rigidBody.position + moveVelocity * Time.fixedDeltaTime);
+            rigidBody.MovePosition(rigidBody.position + moveVelocity * Time.fixedDeltaTime);
 
+            if (moveInput != Vector3.zero)
+            {
+                targetRotation = Quaternion.LookRotation(moveInput);
+                transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
+            }
+
+            /*
             if (moveInput != Vector3.zero)
             {
 
@@ -45,6 +52,7 @@ public class CarMovement : MonoBehaviour
                 transform.Translate(0, 0, translation);
                 transform.Rotate(0, rotation, 0);
             }
+            */
         }
     }
 }
