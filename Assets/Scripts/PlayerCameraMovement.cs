@@ -27,7 +27,7 @@ public class PlayerCameraMovement : MonoBehaviour
         targetRb = target.GetComponent<Rigidbody>();
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Vector3 offset = target.transform.position + offsetToTarget;
 
