@@ -11,8 +11,8 @@ public class CarMovement : MonoBehaviour
     private Vector3 moveVelocity, moveInput;
     private Quaternion targetRotation;
     private Rigidbody rigidBody;
-    public bool isControlledByPlayer = false;
-    public GameObject spawnPosition;
+    public bool isControlledByPlayer = false, firstTimeEnteringCar = true;
+    public GameObject spawnPosition, enemyPrefab;
 
     void Start()
     {
@@ -33,6 +33,13 @@ public class CarMovement : MonoBehaviour
     {
         if (isControlledByPlayer)
         {
+            if (firstTimeEnteringCar)
+            {
+                enemyPrefab = Instantiate(enemyPrefab, spawnPosition.transform.position, spawnPosition.transform.rotation) as GameObject;
+                firstTimeEnteringCar = false;
+            }
+
+
             rigidBody.MovePosition(rigidBody.position + moveVelocity * Time.fixedDeltaTime);
 
             if (moveInput != Vector3.zero)
