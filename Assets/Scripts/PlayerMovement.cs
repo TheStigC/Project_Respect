@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityStandardAssets.Vehicles.Car;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -79,8 +80,9 @@ public class PlayerMovement : MonoBehaviour
                 if (CrossPlatformInputManager.GetButtonDown("Use1"))
                 {
                     //Activate Car controls
+//                  other.GetComponent<CarController>().isControlledByPlayer = true;
                     other.GetComponent<CarMovement>().isControlledByPlayer = true;
-                    other.tag = "Player";
+//                  other.tag = "Player";
 
                     //Deactivate Playermovement and set car as parent
                     canMove = false;
@@ -119,13 +121,15 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ExitCar(GameObject objectToExit)
     {
         //Turn off Car controls
-        objectToExit.GetComponent<CarMovement>().isControlledByPlayer = false;
+//      objectToExit.GetComponent<CarController>().isControlledByPlayer = false;
+        objectToExit.GetComponent<CarMovement>().isControlledByPlayer = true;
+//      objectToExit.GetComponent<CarUserControl>().enabled = false;
         objectToExit.tag = "Car";
 
 
         //this.GetComponent<PlayerMovement>().enabled = false;
         this.transform.SetParent(null);
-        this.transform.position = objectToExit.GetComponent<CarMovement>().spawnPosition.transform.position;
+        this.transform.position = objectToExit.GetComponent<CarController>().spawnPosition.transform.position;
 
         //Deactivate Playervisuals (and shooting)
         playerGraphics.SetActive(true);
