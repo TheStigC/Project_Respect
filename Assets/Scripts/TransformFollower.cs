@@ -7,7 +7,7 @@ public class TransformFollower : MonoBehaviour
     public Vector3 offset;
     private Vector3 velocity = Vector3.zero;
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         // Define a target position above and behind the target transform
         Vector3 desiredPosition = target.position + offset;

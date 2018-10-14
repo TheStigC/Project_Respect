@@ -19,9 +19,9 @@ public class EnemyPatrol : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, moveSpots[nextSpot].position, movementSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, moveSpots[nextSpot].position, movementSpeed * Time.fixedDeltaTime);
 
         Vector3 targetPosition = new Vector3(moveSpots[nextSpot].position.x, transform.position.y, moveSpots[nextSpot].position.z);
         transform.LookAt(targetPosition);

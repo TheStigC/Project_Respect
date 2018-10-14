@@ -45,7 +45,7 @@ public class CarMovement : MonoBehaviour
             if (moveInput != Vector3.zero)
             {
                 targetRotation = Quaternion.LookRotation(moveInput);
-                transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
+                transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.fixedDeltaTime);
             }
 
             /*

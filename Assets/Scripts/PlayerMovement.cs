@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             if (moveInput != Vector3.zero)
             {
                 targetRotation = Quaternion.LookRotation(moveInput);
-                transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
+                transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.fixedDeltaTime);
             }
         }
         else if (!canMove && isInCar)
@@ -122,14 +122,14 @@ public class PlayerMovement : MonoBehaviour
     {
         //Turn off Car controls
 //      objectToExit.GetComponent<CarController>().isControlledByPlayer = false;
-        objectToExit.GetComponent<CarMovement>().isControlledByPlayer = true;
+        objectToExit.GetComponent<CarMovement>().isControlledByPlayer = false;
 //      objectToExit.GetComponent<CarUserControl>().enabled = false;
         objectToExit.tag = "Car";
 
 
         //this.GetComponent<PlayerMovement>().enabled = false;
         this.transform.SetParent(null);
-        this.transform.position = objectToExit.GetComponent<CarController>().spawnPosition.transform.position;
+        this.transform.position = objectToExit.GetComponent<CarMovement>().spawnPosition.transform.position;
 
         //Deactivate Playervisuals (and shooting)
         playerGraphics.SetActive(true);
