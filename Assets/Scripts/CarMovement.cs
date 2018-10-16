@@ -33,6 +33,8 @@ public class CarMovement : MonoBehaviour
     {
         if (isControlledByPlayer)
         {
+            float currentCameraView = Camera.main.fieldOfView;
+            Camera.main.fieldOfView = Mathf.Lerp(currentCameraView, 100, Time.fixedDeltaTime * 5);
             if (firstTimeEnteringCar)
             {
                 enemyPrefab = Instantiate(enemyPrefab, spawnPosition.transform.position, spawnPosition.transform.rotation) as GameObject;

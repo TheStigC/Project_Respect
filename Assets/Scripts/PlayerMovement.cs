@@ -126,6 +126,8 @@ public class PlayerMovement : MonoBehaviour
 //      objectToExit.GetComponent<CarUserControl>().enabled = false;
         objectToExit.tag = "Car";
 
+        //Change Camera back to normal
+        Camera.main.fieldOfView = 60;
 
         //this.GetComponent<PlayerMovement>().enabled = false;
         this.transform.SetParent(null);
@@ -142,9 +144,10 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         //Deactivate Playermovement and set car as parent
-
         isInCar = false;
         rigidBody.isKinematic = false;
+
+
 
         Debug.Log("Just EXITED the car!");
 
