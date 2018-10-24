@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 3ff3accdf6121fc43812e0973c122178
+guid: 33f205f09aa960d4a8b43110270ceecd
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: main_houseSmall
-    2100002: roof_houseSmall
-    2100004: windows_houseSmall
+    2100000: main_houseMedium
+    2100002: roof_houseMedium
+    2100004: windows_houseMedium
     2300000: //RootNode
     3300000: //RootNode
-    4300000: main_houseSmall
+    4300000: main_houseMedium
   externalObjects: {}
   materials:
     importMaterials: 1
