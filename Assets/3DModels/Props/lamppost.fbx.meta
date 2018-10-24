@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 7b34fcc73ee58cb4d96fa6a68726109e
+guid: 2e4160a56b1e3a74f8c474f5d82f3d4a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Empty
-    100004: //RootNode
-    400000: Cube
-    400002: Empty
-    400004: //RootNode
+    100000: Camera
+    100002: Cube
+    100004: Empty
+    100006: Lamp
+    100008: //RootNode
+    400000: Camera
+    400002: Cube
+    400004: Empty
+    400006: Lamp
+    400008: //RootNode
+    2000000: Camera
     2100000: lamp
     2100002: light
     2300000: Cube
     3300000: Cube
     4300000: Cube
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -42,16 +48,16 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
     importVisibility: 1
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -68,8 +74,8 @@ ModelImporter:
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
-    normalSmoothAngle: 0
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
