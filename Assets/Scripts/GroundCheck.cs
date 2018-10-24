@@ -14,13 +14,19 @@ public class GroundCheck : MonoBehaviour
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        player.isGrounded = true;
+        if (collision.gameObject.tag == "Player")
+        {
+            player.isGrounded = true;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        player.isGrounded = false;
+        if (collision.gameObject.tag=="Player")
+        {
+            player.isGrounded = false;
+        }
     }
 }
