@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public float movementSpeed, damage;
 
     Rigidbody myRigidbody;
+    private Vector2 bulletsVelocity;
 
 
     void Awake()
@@ -23,15 +24,23 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer==9)
+        if (other.gameObject.layer == 9)
         {
-            if (other.tag=="HitCollider")
+            if (other.tag == "HitCollider")
             {
-                if (other.GetComponentInParent<Destructable>() !=null)
+                if (other.GetComponentInParent<Destructable>() != null)
                 {
                     other.GetComponentInParent<Destructable>().TakeDamage(damage);
                 }
                 Debug.Log("Deal damage to player!");
+
+
+                bulletsVelocity = myRigidbody.velocity.normalized;
+                //Push objects when hit
+                if (other.GetComponentInParent<Rigidbody>() != null)
+                {
+                    other.GetComponentInParent<Rigidbody>().AddForce(bulletsVelocity * (movementSpeed * 30) * Time.fixedDeltaTime, ForceMode.Impulse);
+                }
             }
         }
 
