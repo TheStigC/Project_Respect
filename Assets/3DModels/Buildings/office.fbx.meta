@@ -1,16 +1,24 @@
 fileFormatVersion: 2
-guid: 3129ff92539c26e41bef8626542792ba
+guid: 724317063bf286240a39baef7a8efc4a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Camera
+    100002: Lamp
+    100004: office
+    100006: //RootNode
+    400000: Camera
+    400002: Lamp
+    400004: office
+    400006: //RootNode
+    2000000: Camera
     2100000: main_color_office
     2100002: outstanding_bricks_office
     2100004: Material
-    2300000: //RootNode
-    3300000: //RootNode
+    2300000: office
+    3300000: office
     4300000: office
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1
