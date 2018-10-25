@@ -1,26 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WeaponPickUp : MonoBehaviour {
+public class WeaponPickUp : MonoBehaviour
+{
 
     public GameObject weaponOnTheGround;
     public GameObject weapon;
-    public GameObject currentWeapon;
     public GameObject weaponContainer;
+    public int weaponSlot;
+    public string unlockString;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "PlayerWeapon")
         {
             WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
-            Debug.Log("jeg collider");
-           currentWeapon.SetActive(false);
-           weapon.SetActive(true);
-           weapon.transform.SetParent(weaponContainer.transform);
-           weaponManager.selectedWeapon = weaponContainer.transform.childCount - 1;  
-           weaponOnTheGround.SetActive(false);
-
+            weaponManager.SwitchToWeapon(weaponSlot);
+            weaponManager.UnlockNewWeapon(unlockString);
+            weapon.SetActive(true);
+            Destroy(weaponContainer.transform.GetChild(weaponSlot).gameObject);
+            weapon.transform.SetParent(weaponContainer.transform);
+            weapon.transform.SetSiblingIndex(weaponSlot);
+            weaponOnTheGround.SetActive(false);
         }
     }
 }
