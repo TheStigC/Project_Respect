@@ -9612,7 +9612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4237919105029964, guid: b7a758277a3c1e04b99ab2f3efff9372, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 8
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4237919105029964, guid: b7a758277a3c1e04b99ab2f3efff9372, type: 2}
       propertyPath: m_LocalRotation.x
@@ -9639,10 +9639,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 114153983321667976, guid: b7a758277a3c1e04b99ab2f3efff9372,
+    - target: {fileID: 65308865125664244, guid: b7a758277a3c1e04b99ab2f3efff9372,
         type: 2}
-      propertyPath: player
-      value: 
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a758277a3c1e04b99ab2f3efff9372, type: 2}
