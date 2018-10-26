@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
-    public float movementSpeed, damage;
+    public float movementSpeed, damage, pushForce;
 
     Rigidbody myRigidbody;
     private Vector2 bulletsVelocity;
@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
                 //Push objects when hit
                 if (other.GetComponentInParent<Rigidbody>() != null)
                 {
-                    other.GetComponentInParent<Rigidbody>().AddForce(bulletsVelocity * (movementSpeed * 30) * Time.fixedDeltaTime, ForceMode.Impulse);
+                    other.GetComponentInParent<Rigidbody>().AddForce(bulletsVelocity * (pushForce * 100) * Time.fixedDeltaTime, ForceMode.Impulse);
                 }
             }
         }
