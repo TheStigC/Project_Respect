@@ -29,7 +29,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pushForce
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
@@ -150,4 +150,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   damage: 8
-  pushForce: 4
+  pushForce: 1
