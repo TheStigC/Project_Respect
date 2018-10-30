@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 281784bcb4d8486419a4b36a0a014f91
+guid: 5b17b3abf02e84245a9571d10f835863
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: cafetable
+    2100000: grass
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder
+    4300000: Cube
   externalObjects: {}
   materials:
     importMaterials: 1
