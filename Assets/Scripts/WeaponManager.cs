@@ -115,7 +115,7 @@ public class WeaponManager : MonoBehaviour
         foreach (Transform weapon in transform)
         {
 
-            if (i == selectedWeapon)
+            if (i == selectedWeapon && !weapon.name.Contains("Locked"))
             {
                 weapon.gameObject.SetActive(true);
                 iconContainer.sprite = iconsList[i];
