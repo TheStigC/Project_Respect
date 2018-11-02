@@ -2,31 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour
+namespace Com.Geo.Respect
 {
-    PlayerMovement player;
-
-
-    void Start()
+    public class GroundCheck : MonoBehaviour
     {
-        player = FindObjectOfType<PlayerMovement>();
-    }
+        PlayerMovement player;
 
 
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        void Start()
         {
-            player.isGrounded = true;
+            player = FindObjectOfType<PlayerMovement>();
         }
-    }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag=="Player")
+
+
+        private void OnCollisionStay(Collision collision)
         {
-            player.isGrounded = false;
+            if (collision.gameObject.tag == "Player")
+            {
+                player.isGrounded = true;
+            }
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                player.isGrounded = false;
+            }
         }
     }
 }

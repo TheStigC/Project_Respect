@@ -42,7 +42,7 @@ namespace Com.Geo.Respect
                 Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
 
 
-                LoadArena();
+               // LoadArena();
             }
         }
 
@@ -57,7 +57,7 @@ namespace Com.Geo.Respect
                 Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
 
 
-                LoadArena();
+              //  LoadArena();
             }
         }
 
@@ -87,7 +87,7 @@ namespace Com.Geo.Respect
             }
             else
             {
-                if (PlayerManagerMultiplayer.LocalPlayerInstance == null)
+                if (PlayerMovementMultiplayer.LocalPlayerInstance == null)
                 {
                     Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
                     // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
@@ -99,7 +99,7 @@ namespace Com.Geo.Respect
                 }
             }
         }
-
+        /*
         void LoadArena()
         {
             if (!PhotonNetwork.IsMasterClient)
@@ -110,7 +110,7 @@ namespace Com.Geo.Respect
             PhotonNetwork.LoadLevel(sceneNames + PhotonNetwork.CurrentRoom.PlayerCount);
         }
 
-
+    */
         #endregion
     }
 }

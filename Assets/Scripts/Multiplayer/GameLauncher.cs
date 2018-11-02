@@ -29,7 +29,7 @@ namespace Com.Geo.Respect
 
 
 
-        #region Private Fields
+        #region Private & Public Fields
 
         /// <summary>
         /// This client's version number. Users are separated from each other by gameVersion (which allows you to make breaking changes).
@@ -43,6 +43,7 @@ namespace Com.Geo.Respect
         /// </summary>
         bool isConnecting;
 
+        public string sceneToJoin = "SceneMultiplayer";
         #endregion
 
 
@@ -161,7 +162,7 @@ namespace Com.Geo.Respect
 
                 // #Critical
                 // Load the Room Level.
-                PhotonNetwork.LoadLevel("RoomFor1");
+                PhotonNetwork.LoadLevel(sceneToJoin);
             }
         }
 

@@ -1801,6 +1801,12 @@ MonoBehaviour:
   Health: 1
   PlayerUiPrefab: {fileID: 1645089565752696, guid: 1e449c55b585bf947bded39e08352f5f,
     type: 2}
+  speed: 5
+  rotationSpeed: 450
+  jumpForce: 2
+  canMove: 1
+  isInCar: 0
+  isGrounded: 1
 --- !u!114 &114911106293505264
 MonoBehaviour:
   m_ObjectHideFlags: 1

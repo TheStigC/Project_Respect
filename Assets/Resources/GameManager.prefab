@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNames: RoomFor
-  playerPrefab: {fileID: 1218854628376612, guid: 7de89d2fdfcb35648b766072fd8d5dfa,
+  playerPrefab: {fileID: 1876645413938920, guid: 126a59181fd6e814492cbd0ddc86889c,
     type: 2}

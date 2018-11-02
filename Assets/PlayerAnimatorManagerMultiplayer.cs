@@ -47,6 +47,7 @@ namespace Com.Geo.Respect
                 return;
             }
 
+            /*
             // deal with Jumping
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
             // only allow jumping if we are running.
@@ -58,7 +59,7 @@ namespace Com.Geo.Respect
                     animator.SetTrigger("Jump");
                 }
             }
-
+            */
 
 
             float h = Input.GetAxis("Horizontal");

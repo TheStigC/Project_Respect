@@ -2,37 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarKill : MonoBehaviour
+namespace Com.Geo.Respect
 {
-
-    Rigidbody myRigibody;
-
-    void Start()
+    public class CarKill : MonoBehaviour
     {
-        myRigibody = GetComponentInParent<Rigidbody>();
-    }
 
+        Rigidbody myRigibody;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag != "HitCollider")
+        void Start()
         {
-            return;
+            myRigibody = GetComponentInParent<Rigidbody>();
         }
-        else
+
+
+        void OnTriggerEnter(Collider other)
         {
-            if (myRigibody.IsSleeping() == false)
+            if (other.tag != "HitCollider")
             {
-                if (other.GetComponentInParent<PlayerMovement>())
+                return;
+            }
+            else
+            {
+                if (myRigibody.IsSleeping() == false)
                 {
-                    if (!other.GetComponentInParent<PlayerMovement>().isInCar)
+                    if (other.GetComponentInParent<PlayerMovement>())
+                    {
+                        if (!other.GetComponentInParent<PlayerMovement>().isInCar)
+                        {
+                            other.gameObject.transform.parent.gameObject.SetActive(false);
+                        }
+                    }
+                    else if (other.transform.parent.gameObject.tag == "AI")
                     {
                         other.gameObject.transform.parent.gameObject.SetActive(false);
                     }
-                }
-                else if (other.transform.parent.gameObject.tag=="AI")
-                {
-                    other.gameObject.transform.parent.gameObject.SetActive(false);
                 }
             }
         }

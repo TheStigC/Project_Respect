@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 
-public class TransformFollower : MonoBehaviour
+
+namespace Com.Geo.Respect
 {
-    public Transform target;
-    public float smoothTime = 0.3F;
-    public Vector3 offset;
-    private Vector3 velocity = Vector3.zero;
-
-    void FixedUpdate()
+    public class TransformFollower : MonoBehaviour
     {
-        // Define a target position above and behind the target transform
-        Vector3 desiredPosition = target.position + offset;
+        public Transform target;
+        public float smoothTime = 0.3F;
+        public Vector3 offset;
+        private Vector3 velocity = Vector3.zero;
 
-        // Smoothly move the camera towards that target position
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime);
+        void FixedUpdate()
+        {
+            // Define a target position above and behind the target transform
+            Vector3 desiredPosition = target.position + offset;
+
+            // Smoothly move the camera towards that target position
+            transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime);
+        }
     }
 }
