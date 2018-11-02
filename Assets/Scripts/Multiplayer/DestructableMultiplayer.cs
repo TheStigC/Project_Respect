@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class Destructable : MonoBehaviour
+public class DestructableMultiplayer : MonoBehaviourPunCallbacks
 {
 
     public float startHealth = 50f;
@@ -28,6 +29,12 @@ public class Destructable : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (!photonView.IsMine)
+        {
+            Debug.Log("Dont kill yourself!");
+            return;
+        }
+
         health -= amount;
         if (healthBarObject != null)
         {

@@ -9,18 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplayer/Launcher.unity
     guid: d5568a56d74c13246a3284c6d564cccf
   - enabled: 1
-    path: Assets/Scenes/Multiplayer/RoomFor1.unity
-    guid: 80b4c549ff9603a4b8157331533e987f
-  - enabled: 1
-    path: Assets/Scenes/Multiplayer/RoomFor2.unity
-    guid: bc1112e7b2a229a4f8dd03bfa29985d7
-  - enabled: 1
-    path: Assets/Scenes/Multiplayer/RoomFor3.unity
-    guid: 57eea81fba08eec40b36eda5d6864329
-  - enabled: 1
-    path: Assets/Scenes/Multiplayer/RoomFor4.unity
-    guid: 2797faf3b878fef47af3b4e5571b6acd
-  - enabled: 1
     path: Assets/Scenes/Scene.unity
     guid: 7a9f99e5d605ede43add06edccb582ba
   m_configObjects: {}

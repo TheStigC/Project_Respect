@@ -153,9 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913f2bfd4c7cd8c4ca5f4b40bca048d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayersPerRoom: 4
+  maxPlayersPerRoom: 10
   controlPanel: {fileID: 772926893}
   progressLabel: {fileID: 580269838}
+  sceneToJoin: SceneMultiplayer
 --- !u!1 &262718765
 GameObject:
   m_ObjectHideFlags: 0
