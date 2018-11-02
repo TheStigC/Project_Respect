@@ -15,6 +15,11 @@ namespace Com.Geo.Respect
     public class GameManager : MonoBehaviourPunCallbacks
     {
         public string sceneNames = "RoomFor";
+        public static GameManager Instance;
+
+        [Tooltip("The prefab to use for representing the player")]
+        public GameObject playerPrefab;
+
 
         #region Photon Callbacks
 
@@ -61,7 +66,6 @@ namespace Com.Geo.Respect
 
         #region Public Methods
 
-
         public void LeaveRoom()
         {
             PhotonNetwork.LeaveRoom();
@@ -71,10 +75,30 @@ namespace Com.Geo.Respect
         #endregion
 
 
-
-
         #region Private Methods
 
+        void Start()
+        {
+            Instance = this;
+
+            if (playerPrefab == null)
+            {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
+            }
+            else
+            {
+                if (PlayerManagerMultiplayer.LocalPlayerInstance == null)
+                {
+                    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+                    // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
+                    PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+                }
+                else
+                {
+                    Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
+                }
+            }
+        }
 
         void LoadArena()
         {

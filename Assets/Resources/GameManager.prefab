@@ -51,3 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba57a63e1252ce41a8130ece24cfd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNames: RoomFor
+  playerPrefab: {fileID: 1218854628376612, guid: 7de89d2fdfcb35648b766072fd8d5dfa,
+    type: 2}
