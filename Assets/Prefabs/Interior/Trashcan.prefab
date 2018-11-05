@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 50
+  health: 0
   deathParticle: {fileID: 1173921495568992, guid: baed04725c834204ab534e65b9e15f06,
     type: 2}
   healthBarObject: {fileID: 1575658120858328}

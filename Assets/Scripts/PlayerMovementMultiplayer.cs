@@ -12,8 +12,8 @@ namespace Com.Geo.Respect
 
         public float speed = 5f, rotationSpeed = 450f, jumpForce = 2.0f, health;
 
-        private Vector3 moveVelocity, moveInput, jump;
-        private Quaternion targetRotation;
+        private Vector3 moveVelocity, moveInput, jump, networkPosition;
+        private Quaternion targetRotation, networkRotation;
         private Rigidbody rigidBody;
         public bool canMove = true, isInCar = false, isGrounded = true;
         public GameObject playerGraphics, interactingObject;
@@ -55,11 +55,17 @@ namespace Com.Geo.Respect
                 this.moveInput = (Vector3)stream.ReceiveNext();
               //  this.jump = (Vector3)stream.ReceiveNext();
                 this.canMove = (bool)stream.ReceiveNext();
-                this.rigidBody.position = (Vector3)stream.ReceiveNext();
-                this.rigidBody.rotation = (Quaternion)stream.ReceiveNext();
-                this.rigidBody.velocity = (Vector3)stream.ReceiveNext();
+                rigidBody.position = (Vector3)stream.ReceiveNext();
+                rigidBody.rotation = (Quaternion)stream.ReceiveNext();
+                rigidBody.velocity = (Vector3)stream.ReceiveNext();
 
 
+                networkPosition = (Vector3)stream.ReceiveNext();
+                networkRotation = (Quaternion)stream.ReceiveNext();
+                rigidBody.velocity = (Vector3)stream.ReceiveNext();
+
+                float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
+                networkPosition += (this.rigidBody.velocity * lag);
             }
         }
 
@@ -121,12 +127,23 @@ namespace Com.Geo.Respect
             }
         }
 
+        void Update()
+        {
+            moveInput = new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
+            moveVelocity = moveInput.normalized * speed;
+        }
 
         void FixedUpdate()
         {
             if (photonView.IsMine)
             {
                 ProcessInputs();
+            }
+
+            if (!photonView.IsMine)
+            {
+                rigidBody.position = Vector3.MoveTowards(rigidBody.position, networkPosition, Time.fixedDeltaTime);
+                rigidBody.rotation = Quaternion.RotateTowards(rigidBody.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
             }
         }
 
@@ -222,10 +239,6 @@ namespace Com.Geo.Respect
 
         void ProcessInputs()
         {
-            moveInput = new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
-            moveVelocity = moveInput.normalized * speed;
-
-
             if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
             {
                 rigidBody.AddForce(jump * jumpForce, ForceMode.Impulse);

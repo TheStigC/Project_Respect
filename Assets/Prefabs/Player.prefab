@@ -50,6 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4285650796847758}
   - component: {fileID: 65409625772021986}
+  - component: {fileID: 114740267115331022}
   m_Layer: 12
   m_Name: Graphics
   m_TagString: PlayerWeapon
@@ -1466,6 +1467,18 @@ MonoBehaviour:
   - {fileID: 21300004, guid: cae99ca6cfe5e054ea54afbb23b02b45, type: 3}
   - {fileID: 21300006, guid: cae99ca6cfe5e054ea54afbb23b02b45, type: 3}
   - {fileID: 21300008, guid: cae99ca6cfe5e054ea54afbb23b02b45, type: 3}
+--- !u!114 &114740267115331022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062602666202416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0c4e0b050256d42a47b7e7f1bc2d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToGround: 1.05
 --- !u!135 &135193528672996370
 SphereCollider:
   m_ObjectHideFlags: 1

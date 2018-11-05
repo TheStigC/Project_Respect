@@ -18,9 +18,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
+
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         timeBetweenShots = attackSpeed;
+
+        //Random tal er ikke nødvendigt, det er bare en test om de så finder forskellige mål
+        float waitTime = Random.Range(3, 5);
+        InvokeRepeating("LookForPlayer", 0.5f, waitTime);
     }
 
 
@@ -55,6 +60,18 @@ public class EnemyBehaviour : MonoBehaviour
 
 
     }
+
+
+    void LookForPlayer()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        else
+            CancelInvoke();
+    }
+
     void SetFocus()
     {
         FollowTarget(player.GetComponent<Target>());

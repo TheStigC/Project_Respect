@@ -3,53 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ProjectileMultiplayer : MonoBehaviourPunCallbacks
+namespace Com.Geo.Respect
 {
-
-    public float movementSpeed, damage, pushForce;
-
-    Rigidbody myRigidbody;
-    private Vector2 bulletsVelocity;
-
-
-    void Awake()
+    public class ProjectileMultiplayer : MonoBehaviourPunCallbacks
     {
-        myRigidbody = GetComponent<Rigidbody>();
-    }
+
+        public float movementSpeed, damage, pushForce;
+
+        Rigidbody myRigidbody;
+        private Vector2 bulletsVelocity;
 
 
-    void FixedUpdate()
-    {
-        myRigidbody.velocity = (transform.forward * (movementSpeed * 100) * Time.fixedDeltaTime);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!photonView.IsMine)
+        void Awake()
         {
-            return;
+            myRigidbody = GetComponent<Rigidbody>();
         }
 
-        if (other.gameObject.layer == 9)
+
+        void FixedUpdate()
         {
-            if (other.tag == "HitCollider")
+            myRigidbody.velocity = (transform.forward * (movementSpeed * 100) * Time.fixedDeltaTime);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            /*
+            if (!photonView.IsMine)
             {
-                if (other.GetComponentInParent<Destructable>() != null)
+                return;
+            }
+            */
+            if (other.gameObject.layer == 9)
+            {
+                if (other.tag == "HitCollider")
                 {
-                    other.GetComponentInParent<Destructable>().TakeDamage(damage);
-                }
-                Debug.Log("Deal damage to player!");
+                    if (other.GetComponentInParent<DestructableMultiplayer>() != null)
+                    {
+                        Debug.Log("GonnaDamageYaFool");
+                        other.GetComponentInParent<DestructableMultiplayer>().TakeDamage(damage);
+                    }
 
 
-                bulletsVelocity = myRigidbody.velocity.normalized;
-                //Push objects when hit
-                if (other.GetComponentInParent<Rigidbody>() != null)
-                {
-                    other.GetComponentInParent<Rigidbody>().AddForce(bulletsVelocity * (pushForce * 100) * Time.fixedDeltaTime, ForceMode.Impulse);
+                    bulletsVelocity = myRigidbody.velocity.normalized;
+                    //Push objects when hit
+                    if (other.GetComponentInParent<Rigidbody>() != null)
+                    {
+                        other.GetComponentInParent<Rigidbody>().AddForce(bulletsVelocity * (pushForce * 100) * Time.fixedDeltaTime, ForceMode.Impulse);
+                    }
                 }
             }
-        }
 
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

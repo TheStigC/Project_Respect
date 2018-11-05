@@ -773,7 +773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7.5
   damage: 6
-  pushForce: 1
+  pushForce: 0.2
 --- !u!114 &114166351886934304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   damage: 6
-  pushForce: 1
+  pushForce: 0.2
 --- !u!114 &114223876921468662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   damage: 6
-  pushForce: 1
+  pushForce: 0.2
 --- !u!114 &114416329491359964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   damage: 6
-  pushForce: 1
+  pushForce: 0.2
 --- !u!114 &114627968461811752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   damage: 6
-  pushForce: 1
+  pushForce: 0.2
 --- !u!114 &114731726839953984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -843,7 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 6
   damage: 6
-  pushForce: 1
+  pushForce: 0.2
 --- !u!114 &114855894654248524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -857,4 +857,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 6
   damage: 6
-  pushForce: 1
+  pushForce: 0.2

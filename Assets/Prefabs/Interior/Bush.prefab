@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33737562859351038}
   - component: {fileID: 23473903937295692}
   - component: {fileID: 65598553818404108}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4016893371070480
 Transform:
