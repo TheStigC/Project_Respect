@@ -862,6 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 50
+  health: 0
   deathParticle: {fileID: 1173921495568992, guid: e490976058aec9c4d9ee8f9c34279f19,
     type: 2}
   healthBarObject: {fileID: 1113224344622244}
@@ -894,7 +895,7 @@ MonoBehaviour:
   attackSpeed: 1.5
   rotationSpeed: 300
   player: {fileID: 0}
-  projectile: {fileID: 1270728816756162, guid: 8f6aaddeac4361d49ac3fa342ebce010, type: 2}
+  projectile: {fileID: 1270728816756162, guid: f5e8db813a7582148b8176d0a0526788, type: 2}
   firePoint: {fileID: 1521815864250808}
 --- !u!114 &114169012015247210
 MonoBehaviour:

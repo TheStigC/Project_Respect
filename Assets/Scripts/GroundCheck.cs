@@ -6,29 +6,38 @@ namespace Com.Geo.Respect
 {
     public class GroundCheck : MonoBehaviour
     {
-        PlayerMovement player;
+
+        public float distanceToGround = 0.5f;
+        PlayerMovement playerMovement;
+        PlayerMovementMultiplayer playerMovementMP;
 
 
-        void Start()
+        private void Start()
         {
-            player = FindObjectOfType<PlayerMovement>();
+            playerMovement = GetComponentInParent<PlayerMovement>();
+            playerMovementMP = GetComponentInParent<PlayerMovementMultiplayer>();
         }
 
 
 
-        private void OnCollisionStay(Collision collision)
+        private void FixedUpdate()
         {
-            if (collision.gameObject.tag == "Player")
+            if (Physics.Raycast(transform.position, Vector3.down, distanceToGround))
             {
-                player.isGrounded = true;
+
+                if (playerMovement != null)
+                    playerMovement.isGrounded = true;
+
+                if (playerMovementMP != null)
+                    playerMovementMP.isGrounded = true;
             }
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            if (collision.gameObject.tag == "Player")
+            else
             {
-                player.isGrounded = false;
+                if (playerMovement != null)
+                    playerMovement.isGrounded = false;
+
+                if (playerMovementMP != null)
+                    playerMovementMP.isGrounded = false;
             }
         }
     }

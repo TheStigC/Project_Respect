@@ -58,13 +58,12 @@ GameObject:
   - component: {fileID: 33998167362354634}
   - component: {fileID: 23994062358628488}
   - component: {fileID: 65188014009213912}
-  - component: {fileID: 54718239147503706}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Flowerbed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4154458735115770
 Transform:
@@ -234,21 +233,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566824655518502}
   m_Mesh: {fileID: 4300000, guid: 474fc12088b2411428ce44d07074d37c, type: 3}
---- !u!54 &54718239147503706
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566824655518502}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &65188014009213912
 BoxCollider:
   m_ObjectHideFlags: 1

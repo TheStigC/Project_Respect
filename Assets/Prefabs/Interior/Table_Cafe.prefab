@@ -137,7 +137,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1887170693538640}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 2
   m_LightProbeUsage: 0
@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 80
+  health: 0
   deathParticle: {fileID: 1173921495568992, guid: e490976058aec9c4d9ee8f9c34279f19,
     type: 2}
   healthBarObject: {fileID: 1497376209929446}

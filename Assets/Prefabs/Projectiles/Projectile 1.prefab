@@ -126,4 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0.75
   damage: 5
-  pushForce: 2
+  pushForce: 0
