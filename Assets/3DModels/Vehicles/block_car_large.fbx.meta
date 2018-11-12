@@ -1,16 +1,39 @@
 fileFormatVersion: 2
-guid: 6eaf1a421d69e9f4294600e9b1c5e1fd
+guid: 80f0c726c0381e145bd2cfd54571430a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: leftbacktire
+    100004: leftfronttire
+    100006: rightbacktire
+    100008: rightfronttire
     400000: //RootNode
-    2100000: stang
-    2100002: mailpost
-    2100004: Material
+    400002: leftbacktire
+    400004: leftfronttire
+    400006: rightbacktire
+    400008: rightfronttire
+    2100000: main_color_car
+    2100002: roof_car
+    2100004: windows_car
+    2100006: lights
+    2100008: sidelights
+    2100010: tires_color
     2300000: //RootNode
+    2300002: leftbacktire
+    2300004: leftfronttire
+    2300006: rightbacktire
+    2300008: rightfronttire
     3300000: //RootNode
-    4300000: Cylinder
+    3300002: leftbacktire
+    3300004: leftfronttire
+    3300006: rightbacktire
+    3300008: rightfronttire
+    4300000: car_maincube
+    4300002: rightbacktire
+    4300004: leftfronttire
+    4300006: rightfronttire
+    4300008: leftbacktire
   externalObjects: {}
   materials:
     importMaterials: 1
