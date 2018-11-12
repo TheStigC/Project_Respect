@@ -15,12 +15,15 @@ namespace Com.Geo.Respect
         private Vector3 moveVelocity, moveInput, jump, networkPosition;
         private Quaternion targetRotation, networkRotation;
         private Rigidbody rigidBody;
-        public bool canMove = true, isInCar = false, isGrounded = true;
+        public bool canMove = true, isInCar = false, isGrounded = true, isFiring;
         public GameObject playerGraphics, interactingObject;
-        private Camera gameCam;
+        public Camera gameCam;
+        TransformFollower transformFollower;
+        WeaponManagerMultiplayer weaponManagerMP;
 
         [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
         public static GameObject LocalPlayerInstance;
+
 
 
 
@@ -32,40 +35,46 @@ namespace Com.Geo.Respect
             if (stream.IsWriting)
             {
                 // We own this player: send the others our data
-             //   stream.SendNext(speed);
-             //   stream.SendNext(rotationSpeed);
-             //   stream.SendNext(jumpForce);
+                //   stream.SendNext(speed);
+                //   stream.SendNext(rotationSpeed);
+                //   stream.SendNext(jumpForce);
                 stream.SendNext(health);
                 stream.SendNext(moveVelocity);
                 stream.SendNext(moveInput);
-              //  stream.SendNext(jump);
+                //  stream.SendNext(jump);
                 stream.SendNext(canMove);
+                stream.SendNext(isFiring);
                 stream.SendNext(this.rigidBody.position);
                 stream.SendNext(this.rigidBody.rotation);
                 stream.SendNext(this.rigidBody.velocity);
+                stream.SendNext(this.rigidBody.isKinematic);
+                stream.SendNext(canMove);
+                stream.SendNext(isInCar);
             }
             else
             {
                 // Network player, receive data
-             //   this.speed = (float)stream.ReceiveNext();
-            //    this.rotationSpeed = (float)stream.ReceiveNext();
-            //    this.jumpForce = (float)stream.ReceiveNext();
+                // this.speed = (float)stream.ReceiveNext();
+                // this.rotationSpeed = (float)stream.ReceiveNext();
+                // this.jumpForce = (float)stream.ReceiveNext();
                 this.health = (float)stream.ReceiveNext();
                 this.moveVelocity = (Vector3)stream.ReceiveNext();
                 this.moveInput = (Vector3)stream.ReceiveNext();
-              //  this.jump = (Vector3)stream.ReceiveNext();
+                // this.jump = (Vector3)stream.ReceiveNext();
+                this.isFiring = (bool)stream.ReceiveNext();
+                // rigidBody.position = (Vector3)stream.ReceiveNext();
+                // rigidBody.rotation = (Quaternion)stream.ReceiveNext();
+                // rigidBody.velocity = (Vector3)stream.ReceiveNext();
+                this.rigidBody.isKinematic = (bool)stream.ReceiveNext();
                 this.canMove = (bool)stream.ReceiveNext();
-                rigidBody.position = (Vector3)stream.ReceiveNext();
-                rigidBody.rotation = (Quaternion)stream.ReceiveNext();
-                rigidBody.velocity = (Vector3)stream.ReceiveNext();
+                this.isInCar = (bool)stream.ReceiveNext();
 
 
                 networkPosition = (Vector3)stream.ReceiveNext();
                 networkRotation = (Quaternion)stream.ReceiveNext();
-                rigidBody.velocity = (Vector3)stream.ReceiveNext();
 
                 float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
-                networkPosition += (this.rigidBody.velocity * lag);
+                // networkPosition += (this.rigidBody.velocity * lag);
             }
         }
 
@@ -75,6 +84,7 @@ namespace Com.Geo.Respect
 
         void Awake()
         {
+            rigidBody = GetComponent<Rigidbody>();
             // #Important
             // used in GameManager.cs: we keep track of the localPlayer instance to prevent instantiation when levels are synchronized
             if (photonView.IsMine)
@@ -91,23 +101,17 @@ namespace Com.Geo.Respect
 
         void Start()
         {
-            rigidBody = GetComponent<Rigidbody>();
+
             jump = new Vector3(0.0f, 2.0f, 0.0f);
+            gameCam = Camera.main;
+            transformFollower = gameCam.GetComponent<TransformFollower>();
 
-            CameraFollowerMultiplayer transformFollower = GetComponent<CameraFollowerMultiplayer>();
+            if (photonView.IsMine)
+            {
+                weaponManagerMP = LocalPlayerInstance.GetComponentInChildren<WeaponManagerMultiplayer>();
+                transformFollower.SetTarget(this.gameObject);
+            }
 
-            if (transformFollower != null)
-            {
-                if (photonView.IsMine)
-                {
-                   // transformFollower.target = this.transform;
-                    transformFollower.OnStartFollowing();
-                }
-            }
-            else
-            {
-                Debug.LogError("<Color=Red><a>Missing</a></Color> CameraWork Component on playerPrefab.", this);
-            }
 
 #if UNITY_5_4_OR_NEWER
             // Unity 5.4 has a new scene management. register a method to call CalledOnLevelWasLoaded.
@@ -129,17 +133,17 @@ namespace Com.Geo.Respect
 
         void Update()
         {
+            if (photonView.IsMine)
+            {
+                ProcessInputs();
+            }
+
             moveInput = new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0, CrossPlatformInputManager.GetAxisRaw("Vertical"));
             moveVelocity = moveInput.normalized * speed;
         }
 
         void FixedUpdate()
         {
-            if (photonView.IsMine)
-            {
-                ProcessInputs();
-            }
-
             if (!photonView.IsMine)
             {
                 rigidBody.position = Vector3.MoveTowards(rigidBody.position, networkPosition, Time.fixedDeltaTime);
@@ -149,56 +153,72 @@ namespace Com.Geo.Respect
 
         private void OnTriggerStay(Collider other)
         {
-
-            //ENTER/LEAVE CAR
-            if (other.tag == "Car")
+            if (photonView.IsMine)
             {
-                if (!isInCar)
+                //ENTER/LEAVE CAR
+                if (other.tag == "Car")
                 {
-                    interactingObject = other.gameObject;
-                }
-
-                //IF WE WANT TO ENTER CAR
-                if (canMove && !isInCar)
-                {
-                    if (CrossPlatformInputManager.GetButtonDown("Use1"))
+                    if (!isInCar)
                     {
-                        //Activate Car controls
-                        //                  other.GetComponent<CarController>().isControlledByPlayer = true;
-                        other.GetComponent<CarMovement>().isControlledByPlayer = true;
-                        //                  other.tag = "Player";
+                        interactingObject = other.gameObject;
+                    }
 
-                        //Deactivate Playermovement and set car as parent
-                        canMove = false;
-                        isInCar = true;
-                        rigidBody.isKinematic = true;
-                        //this.GetComponent<PlayerMovement>().enabled = false;
-                        this.transform.SetParent(other.transform);
-
-                        //Deactivate Playervisuals (and shooting)
-                        playerGraphics.SetActive(false);
-
-                        //Update camera target
-                        gameCam.GetComponent<TransformFollower>().target = other.transform;
-
-                        if (other.GetComponent<EnemyPatrol>() != null)
+                    //IF WE WANT TO ENTER CAR
+                    if (canMove && !isInCar)
+                    {
+                        if (CrossPlatformInputManager.GetButtonDown("Use1"))
                         {
-                            other.GetComponent<EnemyPatrol>().enabled = false;
-                        }
+                            //Activate Car controls
+                            StartCoroutine(InteractionCooldown());
+                            other.GetComponent<CarMovementMultiplayer>().isControlledByPlayer = true;
 
-                        Debug.Log("Just ENTERED the car!");
+                            //Deactivate Playermovement and set car as parent
+                            rigidBody.isKinematic = true;
+                            //this.GetComponent<PlayerMovement>().enabled = false;
+                            //this.transform.SetParent(other.transform);
+
+                            //Deactivate Playervisuals (and shooting)
+                            playerGraphics.SetActive(false);
+
+                            //Update camera target
+                            transformFollower.SetTarget(interactingObject);
+
+                            gameCam.fieldOfView = 100;
+
+                            if (other.GetComponent<EnemyPatrol>() != null)
+                            {
+                                other.GetComponent<EnemyPatrol>().enabled = false;
+                            }
+
+                            other.GetComponent<PhotonView>().RequestOwnership();
+                            Debug.Log("Just ENTERED the car!");
+                        }
                     }
                 }
+
+
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            //ENTER/LEAVE CAR
-            if (other.tag == "Car" && !isInCar)
+            if (photonView.IsMine)
             {
-                interactingObject = null;
+                //ENTER/LEAVE CAR
+                if (other.tag == "Car" && !isInCar)
+                {
+                    interactingObject = null;
+                }
             }
+        }
+
+        IEnumerator InteractionCooldown()
+        {
+            canMove = true;
+            isInCar = false;
+            yield return new WaitForSeconds(0.15f);
+            canMove = false;
+            isInCar = true;
         }
 
 
@@ -206,7 +226,7 @@ namespace Com.Geo.Respect
         {
             //Turn off Car controls
             //      objectToExit.GetComponent<CarController>().isControlledByPlayer = false;
-            objectToExit.GetComponent<CarMovement>().isControlledByPlayer = false;
+            objectToExit.GetComponent<CarMovementMultiplayer>().isControlledByPlayer = false;
             //      objectToExit.GetComponent<CarUserControl>().enabled = false;
             objectToExit.tag = "Car";
 
@@ -214,21 +234,21 @@ namespace Com.Geo.Respect
             Camera.main.fieldOfView = 60;
 
             //this.GetComponent<PlayerMovement>().enabled = false;
-            this.transform.SetParent(null);
-            this.transform.position = objectToExit.GetComponent<CarMovement>().spawnPosition.transform.position;
+            //this.transform.SetParent(null);
+            this.transform.position = objectToExit.GetComponent<CarMovementMultiplayer>().spawnPosition.transform.position;
 
-            //Deactivate Playervisuals (and shooting)
+            //Reactivate Playervisuals (and shooting)
             playerGraphics.SetActive(true);
 
-            canMove = true;
 
             //Update camera target
-            gameCam.GetComponent<TransformFollower>().target = this.transform;
+            transformFollower.SetTarget(this.gameObject);
 
             yield return new WaitForSeconds(0.2f);
 
-            //Deactivate Playermovement and set car as parent
-            isInCar = false;
+            //Reactivate Playermovement and set car as parent
+            this.isInCar = false;
+            this.canMove = true;
             rigidBody.isKinematic = false;
 
 
@@ -239,6 +259,30 @@ namespace Com.Geo.Respect
 
         void ProcessInputs()
         {
+
+
+            if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+            {
+                if (!isFiring)
+                {
+
+                    isFiring = true;
+                    if (photonView.IsMine)
+                    {
+                        weaponManagerMP.ShootWeapon();
+                    }
+                }
+            }
+            if (CrossPlatformInputManager.GetButtonUp("Fire1"))
+            {
+                if (isFiring)
+                {
+                    isFiring = false;
+                }
+            }
+
+
+
             if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
             {
                 rigidBody.AddForce(jump * jumpForce, ForceMode.Impulse);
@@ -255,11 +299,11 @@ namespace Com.Geo.Respect
                     transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.fixedDeltaTime);
                 }
             }
-            else if (!canMove && isInCar)
-            {
-                this.transform.position = interactingObject.transform.position;
 
-                if (CrossPlatformInputManager.GetButtonDown("Use1"))
+
+            if (CrossPlatformInputManager.GetButtonDown("Use1"))
+            {
+                if (!canMove && isInCar)
                 {
                     StartCoroutine(ExitCar(interactingObject));
                 }

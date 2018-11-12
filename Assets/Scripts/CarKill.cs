@@ -36,6 +36,13 @@ namespace Com.Geo.Respect
                     {
                         other.gameObject.transform.parent.gameObject.SetActive(false);
                     }
+                    else if (other.GetComponentInParent<PlayerMovementMultiplayer>())
+                    {
+                        if (!other.GetComponentInParent<PlayerMovementMultiplayer>().isInCar)
+                        {
+                            other.gameObject.transform.parent.gameObject.SetActive(false);
+                        }
+                    }
                 }
             }
         }

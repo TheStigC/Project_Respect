@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222740147164620810}
   - component: {fileID: 114545775252494454}
   m_Layer: 5
-  m_Name: HealthBarBG
+  m_Name: AIHealthBarBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,12 +205,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4237919105029964}
-  - component: {fileID: 114153983321667976}
+  - component: {fileID: 114481975804474064}
   - component: {fileID: 54569268990639132}
-  - component: {fileID: 114075446314963586}
+  - component: {fileID: 114371767875480870}
   - component: {fileID: 195509551485265572}
+  - component: {fileID: 114762593000039208}
+  - component: {fileID: 114498147501486674}
+  - component: {fileID: 114428291242338512}
   m_Layer: 11
-  m_Name: Enemy_Unit
+  m_Name: Enemy_UnitMultiplayer
   m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,23 +853,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 2, z: 0.8}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &114075446314963586
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549771902263556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbca039dd92bf34099f8b1d2d0dd332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startHealth: 50
-  health: 0
-  deathParticle: {fileID: 1173921495568992, guid: e490976058aec9c4d9ee8f9c34279f19,
-    type: 2}
-  healthBarObject: {fileID: 1113224344622244}
-  healthBarFill: {fileID: 114169012015247210}
 --- !u!114 &114112647354889724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,25 +864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef956558b94101d449eccdd29e9fd788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114153983321667976
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549771902263556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a6f3010c47c6742ae2959e3c231cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  stoppingDistance: 6
-  retreatDistance: 4
-  attackSpeed: 3
-  rotationSpeed: 300
-  player: {fileID: 0}
-  projectile: {fileID: 1270728816756162, guid: f5e8db813a7582148b8176d0a0526788, type: 2}
-  firePoint: {fileID: 1521815864250808}
 --- !u!114 &114169012015247210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -924,6 +891,71 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
+--- !u!114 &114371767875480870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549771902263556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c53cf3e17acd1942bd2d6e318f1cc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 50
+  health: 0
+  deathParticle: {fileID: 1173921495568992, guid: e490976058aec9c4d9ee8f9c34279f19,
+    type: 2}
+  healthBarObject: {fileID: 1113224344622244}
+  healthBarFill: {fileID: 114169012015247210}
+--- !u!114 &114428291242338512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549771902263556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &114481975804474064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549771902263556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7579e52fe76bd83468fa848c931d91ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  stoppingDistance: 6
+  retreatDistance: 4
+  attackSpeed: 4
+  rotationSpeed: 300
+  player: {fileID: 0}
+  projectile: {fileID: 1270728816756162, guid: f5e8db813a7582148b8176d0a0526788, type: 2}
+  firePoint: {fileID: 1521815864250808}
+--- !u!114 &114498147501486674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549771902263556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!114 &114545775252494454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -972,6 +1004,29 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114762593000039208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549771902263556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 114498147501486674}
+  - {fileID: 114428291242338512}
+  - {fileID: 114481975804474064}
+  viewIdField: 0
+  InstantiationId: 8
+  isRuntimeInstantiated: 0
 --- !u!114 &114884400741893050
 MonoBehaviour:
   m_ObjectHideFlags: 1
