@@ -248,7 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1476a717757cba745adb03c5a3aa3740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponOnTheGround: {fileID: 1896079169325842}
+  respawnTime: 3
+  weaponOnTheGround: {fileID: 1161194739425116}
   weapon: {fileID: 0}
   weaponContainer: {fileID: 0}
   weaponSlot: 2

@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913f2bfd4c7cd8c4ca5f4b40bca048d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayersPerRoom: 10
+  maxPlayersPerRoom: 4
   controlPanel: {fileID: 772926893}
   progressLabel: {fileID: 580269838}
   sceneToJoin: SceneMultiplayer
@@ -303,7 +303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23300001, y: 0.58761215}
   m_AnchorMax: {x: 0.76410025, y: 0.66035366}
-  m_AnchoredPosition: {x: 10.0000305, y: -10}
+  m_AnchoredPosition: {x: 10, y: -10}
   m_SizeDelta: {x: 0.8000488, y: 31.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097285142
@@ -536,7 +536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.42100003, y: 0.36770022}
   m_AnchorMax: {x: 0.5796455, y: 0.46225852}
-  m_AnchoredPosition: {x: -3.8200989, y: -3.6961365}
+  m_AnchoredPosition: {x: -3.8200684, y: -3.696167}
   m_SizeDelta: {x: 8.599976, y: 8.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160793942
