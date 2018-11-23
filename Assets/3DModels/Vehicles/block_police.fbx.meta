@@ -1,42 +1,40 @@
 fileFormatVersion: 2
-guid: 24cbed9d1c0e54644a9a64b416911ced
+guid: 52ec320ea55dd974ab4257c7df304c96
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cube
-    100004: Cylinder
-    100006: Cylinder.001
-    100008: Cylinder.002
-    100010: Cylinder.003
+    100002: leftbacktire
+    100004: leftfronttire
+    100006: rightbacktire
+    100008: rightfronttire
     400000: //RootNode
-    400002: Cube
-    400004: Cylinder
-    400006: Cylinder.001
-    400008: Cylinder.002
-    400010: Cylinder.003
-    2100000: No Name
-    2100002: Material
-    2100004: Material.004
-    2100006: Material.003
-    2100008: Material.002
-    2100010: Material.001
-    2100012: Material.005
-    2300000: Cube
-    2300002: Cylinder
-    2300004: Cylinder.001
-    2300006: Cylinder.002
-    2300008: Cylinder.003
-    3300000: Cube
-    3300002: Cylinder
-    3300004: Cylinder.001
-    3300006: Cylinder.002
-    3300008: Cylinder.003
-    4300000: Cylinder.003
-    4300002: Cylinder.002
-    4300004: Cylinder.001
-    4300006: Cylinder
-    4300008: Cube
+    400002: leftbacktire
+    400004: leftfronttire
+    400006: rightbacktire
+    400008: rightfronttire
+    2100000: main_color_car
+    2100002: roof_car
+    2100004: windows_car
+    2100006: lights
+    2100008: mid_section
+    2100010: sidelights
+    2100012: tires_color
+    2300000: //RootNode
+    2300002: leftbacktire
+    2300004: leftfronttire
+    2300006: rightbacktire
+    2300008: rightfronttire
+    3300000: //RootNode
+    3300002: leftbacktire
+    3300004: leftfronttire
+    3300006: rightbacktire
+    3300008: rightfronttire
+    4300000: car_maincube
+    4300002: rightbacktire
+    4300004: leftfronttire
+    4300006: rightfronttire
+    4300008: leftbacktire
   externalObjects: {}
   materials:
     importMaterials: 1
