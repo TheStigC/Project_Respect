@@ -3659,14 +3659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dceeea923593f141a5701d8fb7d6782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  stoppingDistance: 0
-  retreatDistance: 0
-  attackSpeed: 0
-  rotationSpeed: 0
-  player: {fileID: 0}
-  projectile: {fileID: 0}
-  firePoint: {fileID: 0}
+  firstPatrolPoint: {fileID: 0}
 --- !u!4 &292350694
 Transform:
   m_ObjectHideFlags: 0
@@ -3675,14 +3668,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 292350689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.7, y: 0, z: 51.2}
+  m_LocalPosition: {x: 17.2, y: 0, z: 46.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 617876234}
   - {fileID: 1608535383}
   - {fileID: 925061056}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1153593456}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &301730028
 Prefab:
@@ -17382,6 +17375,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4016893371070480, guid: 3e2c670b8dd3c6742b302bb9accc5cbd,
     type: 2}
   m_PrefabInternal: {fileID: 1143609403}
+--- !u!1 &1153593455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153593456}
+  m_Layer: 0
+  m_Name: Civillians
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1153593456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153593455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 292350694}
+  m_Father: {fileID: 1978762802}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154206581
 GameObject:
   m_ObjectHideFlags: 0
@@ -26706,6 +26728,7 @@ Transform:
   - {fileID: 1107057648}
   - {fileID: 787895917}
   - {fileID: 1462349804}
+  - {fileID: 1153593456}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
