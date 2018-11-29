@@ -8,6 +8,7 @@ namespace Com.Geo.Respect
 {
     public class PlayerMovement : MonoBehaviour
     {
+        //public Interactable focus; 
 
         public float speed = 5f, rotationSpeed = 450f, jumpForce = 2.0f;
 
@@ -26,8 +27,6 @@ namespace Com.Geo.Respect
             jump = new Vector3(0.0f, 2.0f, 0.0f);
         }
 
-
-
         void Update()
         {
 
@@ -38,7 +37,51 @@ namespace Com.Geo.Respect
             {
                 rigidBody.AddForce(jump * jumpForce, ForceMode.Impulse);
             }
+
+            /*//If we press middle mouse button
+            if (Input.GetMouseButtonDown(2))
+            {
+                RaycastHit hit;
+                Ray ray = gameCam.ScreenPointToRay(Input.mousePosition);
+
+                if(Physics.Raycast(ray, out hit))
+                {
+                    //Stop focusing any objects
+                    RemoveFocus();
+                   
+                }
+            }
+
+            //If we press right mouse button
+            if (Input.GetMouseButtonDown(1))
+            {
+                //Then we create a ray
+                Ray ray = gameCam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if(Physics.Raycast(ray, out hit, 100))
+                {
+                    //Check if we hit an interactable
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    
+                    //If we did, set it as our focus
+                    if(interactable != null)
+                    {
+                        SetFocus(interactable);
+                    }
+                }
+            }*/
         }
+
+        /*void SetFocus(Interactable newFocus)
+        {
+            focus = newFocus;
+        }
+
+        void RemoveFocus()
+        {
+            focus = null;
+        }*/
 
 
         private void FixedUpdate()
