@@ -23,7 +23,7 @@ public class Interactable : MonoBehaviour {
         {
             if (CrossPlatformInputManager.GetButtonDown("Use1") && isEPressed == false)
             { 
-                Debug.Log("HALLO DET VIRKER");
+
                 isEPressed = true;
                 if(myAnimator != null)
                 {
